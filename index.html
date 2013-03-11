@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <title>Procesar Archivo</title>
+        <script src="js/jquery.js"></script>
+        <script src="js/javascript.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+    </head>
+
+    <body>
+
+        <div class="content">
+
+            <div id="file-examinar">
+                <form action="up.php" method="post" 
+                    enctype="multipart/form-data">
+                    <label for="file">Elige el archivo a procesar:</label>
+                    <input type="file" name="file" id="file"/>
+                    <input type="submit" name="btnExaminar" value="Subir" />
+                </form>
+            </div>
+
+            <div id="drop-files" ondragover="return false">
+                o arrastra el archivo aquí!
+            </div>
+
+            <div id="uploaded-holder">
+                <div id="dropped-files">
+                    <div id="upload-button">
+                        <a href="#" class="upload">Cargar</a>
+                        <a href="#" class="delete">Eliminar</a>
+                        <span>0 Files</span>
+                    </div>
+                </div>
+                <div id="extra-files">
+                    <div class="number">
+                        0
+                    </div>
+                    <div id="file-list">
+                        <ul></ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="loading">
+                <div id="loading-bar">
+                    <div class="loading-color"> </div>
+                </div>
+                <div id="loading-content">Uploading file.jpg</div>
+            </div>
+
+            <div id="file-name-holder">
+                <ul id="uploaded-files">
+                    <h1>Uploaded Files</h1>
+                </ul>
+            </div>
+
+        </div>
+
+
+    </body>
+</html>
