@@ -1,4 +1,7 @@
 <?php
+    include('conectar.php');
+    //$ruta="archivos/";
+    $ruta="c:/";
     $allowedExts = array("txt", "dat");
     $extension = end(explode(".", $_FILES["file"]["name"]));
     if (($_FILES["file"]["type"] == "text/plain")
@@ -20,12 +23,27 @@
             echo "Stored in: " . $_FILES["file"]["tmp_name"]."<br>";
 
             move_uploaded_file($_FILES["file"]["tmp_name"],
-                "archivos/" . $_FILES["file"]["name"]);
-            echo "Archivo subido correctamente : " . "archivos/" . $_FILES["file"]["name"];
+                $ruta . $_FILES["file"]["name"]);
+            echo "Archivo subido correctamente : " . $ruta . $_FILES["file"]["name"];
+            
+            if($con)
+            echo "<br>conexion establecida";
+            else echo "<br>error en la conexión";
+            
+            $query="LOAD DATA LOCAL INFILE ";
+            $query.="'".$ruta . $_FILES["file"]["name"]."'";
+            
+            
+            $query.=" REPLACE INTO TABLE registro (numEmpleado,Fecha,Hora)";
+            if(mysql_query($query,$con))
+            echo "<br>información cargada";
+            else
+            echo "<br>error en cargar archivo a la DB ".mysql_error($con);
+            echo "<br> $query";                   
         }
     }
     else
     {
-        echo "Invalid file";
+        echo "Archivo no cargado";
     }
 ?>
