@@ -1,7 +1,7 @@
 <?php
     include('conectar.php');
-    //$ruta="archivos/";
-    $ruta="c:/";
+    $ruta="archivos/";
+    //$ruta="c:/";
     $allowedExts = array("txt", "dat");
     $extension = end(explode(".", $_FILES["file"]["name"]));
     if (($_FILES["file"]["type"] == "text/plain")
@@ -20,10 +20,12 @@
             echo "Upload: " . $_FILES["file"]["name"] . "<br>";
             echo "Type: " . $_FILES["file"]["type"] . "<br>";
             echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
-            echo "Stored in: " . $_FILES["file"]["tmp_name"]."<br>";
+            echo "Almacenamiento temporal: " . $_FILES["file"]["tmp_name"]."<br>";
 
+            echo "ruta a subir: ".$ruta . $_FILES["file"]["name"];
             move_uploaded_file($_FILES["file"]["tmp_name"],
                 $ruta . $_FILES["file"]["name"]);
+            echo "ruta a subir".$ruta . $_FILES["file"]["name"];
             echo "Archivo subido correctamente : " . $ruta . $_FILES["file"]["name"];
             
             if($con)
