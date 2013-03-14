@@ -1,0 +1,14 @@
+2013-03-14 14:14:03: ----- Tarea 'SanAngel': ANÁLISIS comenzado por On File Change 1st Full Analyze en ordenador 'LAPXPS502_1T' (GoodSync v 9.4.4.4) -----
+2013-03-14 14:14:03: C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella =PropDels=> sftp://ftp9.bravehost.com, SavePastVers, bCleanupPastVers=30d, NoWaitForLocks, FolderLinksIgnore, FileLinksDrill, CopyCreateTime
+2013-03-14 14:14:03: izquierda: Archivos: 54 (excluidos 0). Carpetas: 49 (excluidas 1). C: NTFS, Libre: 582 GB, Total: 679 GB
+2013-03-14 14:14:28: derecha: Archivos: 54 (excluidos 0). Carpetas: 49 (excluidas 1). SSH-2.0-mod_sftp/0.9.7
+2013-03-14 14:14:28: Cambios: 1, Conflictos: 0, TiempoCopia: 0, EstadoCopia: 0/0, Errores: 0
+2013-03-14 14:14:28: Left to Right: Copy File: 1 
+2013-03-14 14:14:28: ----- Análisis Completado. Tiempo 00:00:30, Velocidad: 3 archivo/s -----
+2013-03-14 14:14:28: ===== Tarea 'SanAngel': SINC comenzada por On File Change 1st Full Analyze en ordenador 'LAPXPS502_1T' =====
+2013-03-14 14:14:28: C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella =PropDels=> sftp://ftp9.bravehost.com, SavePastVers, bCleanupPastVers=30d, NoWaitForLocks, FolderLinksIgnore, FileLinksDrill, CopyCreateTime
+2013-03-14 14:14:29: Copiar Sobre 'C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella\up.php' -> 'sftp://ftp9.bravehost.com/up.php'
+2013-03-14 14:14:30: Guardar archivo de estado sftp://ftp9.bravehost.com/_gsdata_/_file_state_v4._gs
+2013-03-14 14:14:30: Elementos Sincronizados OK: 1, Errores: 0
+2013-03-14 14:14:30: ===== Sinc. Completa. Tiempo: 00:00:02, Velocidad:  =====
+2013-03-14 14:14:30: 

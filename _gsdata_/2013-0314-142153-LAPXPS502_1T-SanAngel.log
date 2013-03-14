@@ -1,0 +1,25 @@
+2013-03-14 14:21:53: ----- Tarea 'SanAngel': ANÁLISIS comenzado por On File Change Incremental en ordenador 'LAPXPS502_1T' (GoodSync v 9.4.4.4) -----
+2013-03-14 14:21:53: C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella =PropDels=> sftp://ftp9.bravehost.com, SavePastVers, bCleanupPastVers=30d, NoWaitForLocks, FolderLinksIgnore, FileLinksDrill, CopyCreateTime
+2013-03-14 14:21:53: Change in: C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella\.git\objects\95\af8a4efc28fbe6bb82f9a9f0035498cbadfd3f
+2013-03-14 14:21:53: Change in: C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella\.git\refs\heads\master
+2013-03-14 14:21:53: Change in: C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella\.git\objects\cb\00f91c09644203c5d12068fadfe896821e56e4
+2013-03-14 14:21:53: Change in: C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella\.git\HEAD
+2013-03-14 14:21:53: Change in: C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella\.git\objects\39\bb7b4751480508c539d351da7d860bf44b07c3
+2013-03-14 14:21:53: Change in: C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella\.git\index.lock
+2013-03-14 14:21:53: Change in: C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella\.git\FETCH_HEAD
+2013-03-14 14:21:53: Change in: C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella\.git\info\exclude
+2013-03-14 14:21:53: Change in: C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella\.git\objects\2a\930f91c8fe575e96563a923f025ae5fb717d5e
+2013-03-14 14:21:53: Change in: C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella\.git\refs\remotes\origin\master
+2013-03-14 14:21:53: Change in: C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella\.gitignore
+2013-03-14 14:21:53: Change in: C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella\.git\objects\2b\4f3e7043b0ffc94c108d3947dbfd62ff0efb5a
+2013-03-14 14:21:53: Change in: C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella\.git\objects\5b\b7ef303d23b488510c584d9373729d3745edef
+2013-03-14 14:21:53: Cambios: 1, Conflictos: 0, TiempoCopia: 0, EstadoCopia: 0/0, Errores: 0
+2013-03-14 14:21:53: Left to Right: Copy File: 1 
+2013-03-14 14:21:53: ----- Análisis Completado. Tiempo 00:00:04, Velocidad: 26 archivo/s -----
+2013-03-14 14:21:53: ===== Tarea 'SanAngel': SINC comenzada por On File Change Incremental en ordenador 'LAPXPS502_1T' =====
+2013-03-14 14:21:53: C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella =PropDels=> sftp://ftp9.bravehost.com, SavePastVers, bCleanupPastVers=30d, NoWaitForLocks, FolderLinksIgnore, FileLinksDrill, CopyCreateTime
+2013-03-14 14:21:54: Copiar Nueva 'C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella\.git\FETCH_HEAD' -> 'sftp://ftp9.bravehost.com/.git/FETCH_HEAD'
+2013-03-14 14:21:55: Guardar archivo de estado sftp://ftp9.bravehost.com/_gsdata_/_file_state_v4._gs
+2013-03-14 14:21:55: Elementos Sincronizados OK: 1, Errores: 0
+2013-03-14 14:21:55: ===== Sinc. Completa. Tiempo: 00:00:02, Velocidad: 1.35 KB/s (3.77 KB/s) =====
+2013-03-14 14:21:56: 

@@ -1,0 +1,31 @@
+2013-03-13 13:26:29: ----- Tarea 'SanAngel': ANÁLISIS comenzado por On File Change 1st Full Analyze en ordenador 'LAPXPS502_1T' (GoodSync v 9.4.4.4) -----
+2013-03-13 13:26:29: C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella =PropDels=> sftp://ftp9.bravehost.com, SavePastVers, bCleanupPastVers=30d, NoWaitForLocks, FolderLinksIgnore, FileLinksDrill, CopyCreateTime
+2013-03-13 13:26:29: izquierda: Archivos: 54 (excluidos 0). Carpetas: 49 (excluidas 1). C: NTFS, Libre: 582 GB, Total: 679 GB
+2013-03-13 13:26:30: Delete abandoned lock file sftp://ftp9.bravehost.com/_gsdata_/lock.gsl
+2013-03-13 13:26:51: derecha: Archivos: 46 (excluidos 0). Carpetas: 42 (excluidas 1). SSH-2.0-mod_sftp/0.9.7
+2013-03-13 13:26:51: Cambios: 17, Conflictos: 0, TiempoCopia: 0, EstadoCopia: 0/0, Errores: 0
+2013-03-13 13:26:51: Left to Right: Copy File: 17 
+2013-03-13 13:26:51: ----- Análisis Completado. Tiempo 00:00:26, Velocidad: 4 archivo/s -----
+2013-03-13 13:26:51: ===== Tarea 'SanAngel': SINC comenzada por On File Change 1st Full Analyze en ordenador 'LAPXPS502_1T' =====
+2013-03-13 13:26:51: C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella =PropDels=> sftp://ftp9.bravehost.com, SavePastVers, bCleanupPastVers=30d, NoWaitForLocks, FolderLinksIgnore, FileLinksDrill, CopyCreateTime
+2013-03-13 13:26:52: Crear Carpeta 'sftp://ftp9.bravehost.com/.git/objects/5b'
+2013-03-13 13:26:52: Crear Carpeta 'sftp://ftp9.bravehost.com/.git/objects/72'
+2013-03-13 13:26:52: Crear Carpeta 'sftp://ftp9.bravehost.com/.git/objects/95'
+2013-03-13 13:26:52: Crear Carpeta 'sftp://ftp9.bravehost.com/.git/objects/a5'
+2013-03-13 13:26:52: Crear Carpeta 'sftp://ftp9.bravehost.com/.git/objects/b4'
+2013-03-13 13:26:52: Crear Carpeta 'sftp://ftp9.bravehost.com/.git/objects/d6'
+2013-03-13 13:26:52: Crear Carpeta 'sftp://ftp9.bravehost.com/.git/objects/eb'
+2013-03-13 13:26:54: Copiar Sobre 'C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella\.git\index' -> 'sftp://ftp9.bravehost.com/.git/index'
+2013-03-13 13:26:55: Copiar Nueva 'C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella\.git\objects\2a\930f91c8fe575e96563a923f025ae5fb717d5e' -> 'sftp://ftp9.bravehost.com/.git/objects/2a/930f91c8fe575e96563a923f025ae5fb717d5e'
+2013-03-13 13:26:55: Copiar Nueva 'C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella\.git\objects\5b\b7ef303d23b488510c584d9373729d3745edef' -> 'sftp://ftp9.bravehost.com/.git/objects/5b/b7ef303d23b488510c584d9373729d3745edef'
+2013-03-13 13:27:00: Copiar Nueva 'C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella\.git\objects\72\200aabfdce783be7be87c4cb9da64f224fce40' -> 'sftp://ftp9.bravehost.com/.git/objects/72/200aabfdce783be7be87c4cb9da64f224fce40'
+2013-03-13 13:27:01: Copiar Nueva 'C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella\.git\objects\95\af8a4efc28fbe6bb82f9a9f0035498cbadfd3f' -> 'sftp://ftp9.bravehost.com/.git/objects/95/af8a4efc28fbe6bb82f9a9f0035498cbadfd3f'
+2013-03-13 13:27:02: Copiar Nueva 'C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella\.git\objects\a5\35f515392aaf7c4cdf86b4a03eeb597f546479' -> 'sftp://ftp9.bravehost.com/.git/objects/a5/35f515392aaf7c4cdf86b4a03eeb597f546479'
+2013-03-13 13:27:03: Copiar Nueva 'C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella\.git\objects\b4\0a17cefc2ec041e07d2d81ec5366965b266287' -> 'sftp://ftp9.bravehost.com/.git/objects/b4/0a17cefc2ec041e07d2d81ec5366965b266287'
+2013-03-13 13:27:03: Copiar Nueva 'C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella\.git\objects\d6\fc2292e76e8dc04d67d4b15ab7550baf2be31e' -> 'sftp://ftp9.bravehost.com/.git/objects/d6/fc2292e76e8dc04d67d4b15ab7550baf2be31e'
+2013-03-13 13:27:04: Copiar Nueva 'C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella\.git\objects\eb\4101e863eb9472863278f7d5a2e43dabdf41df' -> 'sftp://ftp9.bravehost.com/.git/objects/eb/4101e863eb9472863278f7d5a2e43dabdf41df'
+2013-03-13 13:27:05: Copiar Sobre 'C:\Users\Sistemas\Documents\NuSphere PhpED\Projects\huella\conectar.php' -> 'sftp://ftp9.bravehost.com/conectar.php'
+2013-03-13 13:27:06: Guardar archivo de estado sftp://ftp9.bravehost.com/_gsdata_/_file_state_v4._gs
+2013-03-13 13:27:06: Elementos Sincronizados OK: 17, Errores: 0
+2013-03-13 13:27:07: ===== Sinc. Completa. Tiempo: 00:00:16, Velocidad: 16.9 KB/s (2.49 KB/s) =====
+2013-03-13 13:27:07: 

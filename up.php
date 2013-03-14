@@ -30,7 +30,7 @@
             echo "<br>conexion establecida";
             else echo "<br>error en la conexión";
             
-            $query="LOAD DATA LOCAL INFILE ";
+            $query="LOAD DATA INFILE ";
             $query.="'".$ruta . $_FILES["file"]["name"]."'";
             
             
