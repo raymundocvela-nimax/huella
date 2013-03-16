@@ -1,15 +1,19 @@
 <?php
     include('conectar.php');
-    $num=$_POST['num'];
-    $nom=$_POST['nom'];
-    $ap=$_POST['apep'];
-    $am=$_POST['apem'];
+    $num=strtoupper($_POST['num']);
+    $nom=strtoupper($_POST['nom']);
+    $ap=strtoupper($_POST['apep']);
+    $am=strtoupper($_POST['apem']);
     $query="SELECT numEmpleado FROM Empleado WHERE numEmpleado='$num'";
-    $res=mysql_query($query,$con);
-    if(mysql_fetch_array($res))
+    $res=mysqli_query($con,$query);
+    if($row=mysqli_fetch_array($res))
         echo "<br>Usuario existente";
-    $query="INSERT INTO Empleado (numEmpleado,nombre,apellidoPaterno,apellidoMaterno) VALUES('$num','$nom','$ap','$am')";
-    if(mysql_query($query,$con)) echo "Empleado agregado correctamente";
-    else echo "Registro no agregado ".mysql_error($con);
+    else{
+        $query="INSERT INTO empleado (numEmpleado,nombre,apellidoPaterno,apellidoMaterno) VALUES('$num','$nom','$ap','$am')";
+        if(mysqli_query($con,$query))
+        echo "<br>Empleado agregado correctamente";
+        else echo "<br>Registro no agregado ".mysqli_error($con);
+    }
     echo "<br>$query";
+    mysqli_close($con);
 ?>

@@ -1,12 +1,10 @@
 <?php
-$server="sql2.bravehost.com";
-$usr="sanangel";
-$psw="123456";
-$con=mysql_connect($server,$usr,$psw) or die;
-if($con){
+    $host="sql2.bravehost.com";
+    $usr="sanangel";
+    $psw="123456";
     $namedb="sanangel_2426973";
-mysql_selectdb($namedb);
-}
-else echo "<br>Error en la conexion";
-
+    $con=mysqli_connect($host,$usr,$psw,$namedb) or die;
+    if(mysqli_errno($con)){
+        echo "<br>No se realizo la conexión ".mysqli_connect_error();
+    }else echo "<br>Conexión establecida";
 ?>

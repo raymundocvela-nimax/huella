@@ -25,27 +25,30 @@
             echo "ruta a subir: ".$ruta . $_FILES["file"]["name"];
             move_uploaded_file($_FILES["file"]["tmp_name"],
                 $ruta . $_FILES["file"]["name"]);
-            echo "ruta a subir".$ruta . $_FILES["file"]["name"];
-            echo "Archivo subido correctamente : " . $ruta . $_FILES["file"]["name"];
-            
-            if($con)
-            echo "<br>conexion establecida";
+            echo "<br>ruta a subir".$ruta . $_FILES["file"]["name"];
+            echo "<br>Archivo subido correctamente : " . $ruta . $_FILES["file"]["name"];
+
+            if($con) echo "<br>conexion establecida";
             else echo "<br>error en la conexión";
-            
-            $query="LOAD DATA INFILE ";
-            $query.="'".$ruta . $_FILES["file"]["name"]."'";
-            
-            
-            $query.=" REPLACE INTO TABLE registro (numEmpleado,Fecha,Hora)";
-            if(mysql_query($query,$con))
-            echo "<br>información cargada";
-            else
-            echo "<br>error en cargar archivo a la DB ".mysql_error($con);
-            echo "<br> $query";                   
+
+
+            $ruta = "archivos/" . $_FILES["file"]["name"];
+            echo "<br>ruta: ".$ruta;
+            if(file_exists($ruta))
+            {
+                $query="LOAD DATA INFILE ";
+                $query.="'".$ruta."'";
+                $query.=" REPLACE INTO TABLE registro (numEmpleado,Fecha,Hora)";
+                if(mysqli_query($con,$query))
+                    echo "<br>información cargada";
+                else echo "<br>error en cargar archivo a la DB ".mysqli_error($con);
+            }            
+            echo "<br> $query";
         }
     }
     else
     {
         echo "Archivo no cargado";
     }
+    mysqli_close($con);
 ?>
