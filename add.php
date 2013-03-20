@@ -1,9 +1,9 @@
 <?php
     include('conectar.php');
-    $num=strtoupper($_POST['num']);
-    $nom=strtoupper($_POST['nom']);
-    $ap=strtoupper($_POST['apep']);
-    $am=strtoupper($_POST['apem']);
+    $num=trim(strtoupper($_POST['num']));
+    $nom=trim(strtoupper($_POST['nom']));
+    $ap=trim(strtoupper($_POST['apep']));
+    $am=trim(strtoupper($_POST['apem']));
     $query="SELECT numEmpleado FROM Empleado WHERE numEmpleado='$num'";
     $res=mysqli_query($con,$query);
     if($row=mysqli_fetch_array($res))
