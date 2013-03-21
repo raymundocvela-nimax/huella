@@ -1,5 +1,5 @@
 <?php
-    include('conectar.php');
+    include('conectar_local.php');
     $num=trim(strtoupper($_POST['num']));
     $nom=trim(strtoupper($_POST['nom']));
     $ap=trim(strtoupper($_POST['apep']));

@@ -1,7 +1,13 @@
 <?php
-    include('conectar.php');
-    //$ruta="archivos/";   REMOTA
-    $ruta="c:/archivos/"; //LOCAL
+/*
+origen: 
+*/
+
+    //include('conectar.php');
+    include('conectar_local.php');
+    //$ruta="archivos/";   //REMOTA
+    $query="";
+    $ruta="c:/"; //LOCAL
     $allowedExts = array("txt", "dat");
     $extension = end(explode(".", $_FILES["file"]["name"]));
     if (($_FILES["file"]["type"] == "text/plain")
@@ -21,29 +27,30 @@
             echo "Type: " . $_FILES["file"]["type"] . "<br>";
             echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
             echo "Almacenamiento temporal: " . $_FILES["file"]["tmp_name"]."<br>";
+            $ruta=$ruta . $_FILES["file"]["name"];
 
-            echo "ruta a subir: ".$ruta . $_FILES["file"]["name"];
+            echo "ruta a subir: ".$ruta;
             move_uploaded_file($_FILES["file"]["tmp_name"],
-                $ruta . $_FILES["file"]["name"]);
-            echo "<br>ruta a subir".$ruta . $_FILES["file"]["name"];
-            echo "<br>Archivo subido correctamente : " . $ruta . $_FILES["file"]["name"];
+                $ruta);
+            echo "<br>ruta a subir".$ruta;
+            echo "<br>Archivo subido correctamente : " . $ruta;
 
             if($con) echo "<br>conexion establecida";
             else echo "<br>error en la conexión";
 
 
-            $ruta = "archivos/" . $_FILES["file"]["name"];
+            //$ruta = "archivos/" . $_FILES["file"]["name"];
             echo "<br>ruta: ".$ruta;
             if(file_exists($ruta))
             {
                 $query="LOAD DATA INFILE ";
                 $query.="'".$ruta."'";
-                $query.=" REPLACE INTO TABLE registro (numEmpleado,Fecha,Hora)";
+                $query.=" REPLACE INTO TABLE empleado (numEmpleado,nombre,apellidoPaterno,apellidoMaterno)";
                 if(mysqli_query($con,$query))
                     echo "<br>información cargada";
                 else echo "<br>error en cargar archivo a la DB ".mysqli_error($con);
             }            
-            echo "<br> $query";
+            echo "<br>query: $query";
         }
     }
     else

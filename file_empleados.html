@@ -1,9 +1,13 @@
 <!DOCTYPE HTML>
 <html>
     <head>
+    <!--
+    origen: index.html
+    destino: parser:empleados.php
+    !-->
         <meta charset="utf-8">
 
-        <title>Procesar Archivo</title>
+        <title>Procesar Archivo Empleados</title>
         <script src="js/jquery.js"></script>
         <script src="js/javascript.js"></script>
         <link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -12,14 +16,13 @@
     <body>
 
         <div class="content">
-<a href="agregar.html">Agregar un Empleado </a><br> 
-<a href="file_empleados.html">Agregar Empleados desde archivo</a><br>
-<a href="del_registros.php">Eliminar Registros </a><br> 
+<a href="index.html">INDEX</a><br>
 <a href="del_empleados.php">Eliminar tabla Empleados</a>
+ 
             <div id="file-examinar">
-                <form action="parser.php" method="post" 
+                <form action="parser_empleados.php" method="post" 
                     enctype="multipart/form-data">
-                    <label for="file">Elige el archivo a procesar:</label>
+                    <label for="file">Elige el archivo que contiene la lista de empleados a procesar:</label>
                     <input type="file" name="file" id="file"/>
                     <input type="submit" name="btnExaminar" value="Subir" />
                 </form>
