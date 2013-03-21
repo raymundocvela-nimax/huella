@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-<!--
-origen: index.php
-destino: add.php
---!>
+    <head>
+        <meta charset="utf-8">
+        <!--
+        origen: index.php
+        destino: add.php
+        --!>
 
-<title>Agregar Empleado</title>
-<!--<link rel="stylesheet" type="text/css" href="my.css">-->
-</head>
-<body>
-<a href="index.html">INDEX </a> <br>
-<a href="agregar.html">Agregar Empleado </a>
-  <form name="frmAdd" id="frmAdd" action="add.php" method="post">
-  <label for="num">Num. Empleado:</label> 
-  <input type="number" id="num" name="num" placeholder="1018" required  autofocus="autofocus"><br>
-  
+        <title>Agregar Empleado</title>
+        <!--<link rel="stylesheet" type="text/css" href="my.css">-->
+    </head>
+    <body>
 
-   <label for="nom">Nombre:</label> 
-   <input type="text" style="text-transform: uppercase;" id="nom" name="nom" placeholder="Raymundo" required><br>
-   
-   <label for="apep">Apellido Paterno:</label> 
-   <input type="text" style="text-transform: uppercase;" id="apep" name="apep" placeholder="Castillo" required><br>
-   
-   <label for="apem">Apellido Materno:</label>
-   <input type="text" style="text-transform: uppercase;" id="apem" name="apem" placeholder="Velazquez" required><br>
-  <input type="submit" value="Enviar" id="submit-button">
-  </form>
-</body>
+        <a href="index.html">INDEX </a> <br>
+        <a href="file_empleados.html">Agregar Empleados desde archivo</a><br>
+        <a href="del_registros.php">Eliminar Registros </a><br> 
+        <a href="del_empleados.php">Eliminar tabla Empleados</a>
+        <form name="frmAdd" id="frmAdd" action="add.php" method="post">
+            <label for="num">Num. Empleado:</label> 
+            <input type="number" id="num" name="num" placeholder="1018" required  autofocus="autofocus"><br>
+
+
+            <label for="nom">Nombre:</label> 
+            <input type="text" style="text-transform: uppercase;" id="nom" name="nom" placeholder="Raymundo" required><br>
+
+            <label for="apep">Apellido Paterno:</label> 
+            <input type="text" style="text-transform: uppercase;" id="apep" name="apep" placeholder="Castillo" required><br>
+
+            <label for="apem">Apellido Materno:</label>
+            <input type="text" style="text-transform: uppercase;" id="apem" name="apem" placeholder="Velazquez" required><br>
+            <input type="submit" value="Enviar" id="submit-button">
+        </form>
+    </body>
 </html>

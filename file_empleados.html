@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-    <!--
-    origen: index.html
-    destino: parser:empleados.php
-    !-->
+        <!--
+        origen: index.html
+        destino: parser:empleados.php
+        !-->
         <meta charset="utf-8">
 
         <title>Procesar Archivo Empleados</title>
@@ -16,13 +16,15 @@
     <body>
 
         <div class="content">
-<a href="index.html">INDEX</a><br>
-<a href="del_empleados.php">Eliminar tabla Empleados</a>
- 
+            <a href="index.html">INDEX </a> <br>
+            <a href="agregar.html">Agregar un Empleado </a><br> 
+            <a href="del_registros.php">Eliminar Registros </a><br> 
+            <a href="del_empleados.php">Eliminar tabla Empleados</a>
+
             <div id="file-examinar">
                 <form action="parser_empleados.php" method="post" 
                     enctype="multipart/form-data">
-                    <label for="file">Elige el archivo que contiene la lista de empleados a procesar:</label>
+                    <label for="file">Elige el archivo que contiene la lista de empleados a procesar:</label><br>
                     <input type="file" name="file" id="file"/>
                     <input type="submit" name="btnExaminar" value="Subir" />
                 </form>
@@ -64,7 +66,5 @@
             </div>
 
         </div>
-
-
     </body>
 </html>
