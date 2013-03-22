@@ -23,7 +23,7 @@
                 cargado al servidor,
                 verifica que sea valido
                 recupera de tabla empleado idEmpleado segun numEmpleado,
-                verifica si en tabla registroempleado hay registros con IdEmpleado y fecha indicados
+                verifica si en tabla registroEmpleado hay registros con IdEmpleado y fecha indicados
                 Si- obtiene idRegistro e inserta registro idRegistro y Hora nuevo a tabla registroHora
                 No- Inserta idEmpleado y fecha, recupera IdRegistro,
                 Inserta idRegistro y hora en tabla registroHora
@@ -89,7 +89,7 @@
                                             echo "<br> Ya hay empleado con idEmp=$idEmp y fecha: $fecha";
                                         }else{
                                             //No existe, Insertamos nuevo Registro en tabla registroEmpleado
-                                            $query="INSERT INTO registroempleado (empleado_idEmpleado,Fecha) VALUES('$idEmp','$fecha')";
+                                            $query="INSERT INTO registroEmpleado (empleado_idEmpleado,Fecha) VALUES('$idEmp','$fecha')";
                                             if(mysqli_query($con,$query)){
                                                 echo "<br>Registro idEmp y fecha agregado correctamente";
 //                                                echo "<br>".$query;
@@ -101,12 +101,12 @@
                                         //CONSIREDAR SI HAY HORAS REPEDITAS
                                         //Con $idregistro y $hora Insertamos registro  registroHora
                                         if($idRegistro!=null){
-                                            $query="SELECT idregistroHora FROM registrohora WHERE registroEmpleado_idRegistro='$idRegistro' AND Hora='$hora'";
+                                            $query="SELECT idregistroHora FROM registroHora WHERE registroEmpleado_idRegistro='$idRegistro' AND Hora='$hora'";
                                             $res=mysqli_query($con,$query);
                                             if($row=mysqli_fetch_array($res)){
                                                 echo "<br>El Registro YA EXISTE ".$row[0];
                                             }else {
-                                                $query="INSERT INTO registrohora (registroEmpleado_idRegistro,Hora)
+                                                $query="INSERT INTO registroHora (registroEmpleado_idRegistro,Hora)
                                                 VALUES ('$idRegistro','$hora')";
                                                 if(mysqli_query($con, $query)) echo "<br>Registro hr agregado correctamente";
                                                 else echo "<br>Registro hr NO AGREGADO ".mysqli_error($con);
