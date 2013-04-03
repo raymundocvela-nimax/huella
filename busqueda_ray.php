@@ -1,11 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Busqueda Avanzada</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+    </head>
+
+    <body>
+        <div class="content">
+            <a href="index.html">INDEX </a> <br>
+            <a href="agregar.html">Agregar un Empleado </a><br> 
+            <a href="file_empleados.html">Agregar Empleados desde archivo</a><br>
+            <a href="del_registros.php">Eliminar Registros </a><br> 
+
             <?php
-                header('Cache-Control: no-cache, must-revalidate');
-                header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
-                header('Content-type: application/json');
-
                 //include('conectar_local.php');
-                //include('conectar.php');
-
+                include('conectar.php');
                 $idFiltro=$_REQUEST['idFiltro'];
                 /*Dependiendo el valor (1,2,3,4 ó 5) ejecutará la 
                 función:
@@ -80,148 +90,81 @@
                         break;
                 }
 
-                function conectar( )
-                {
-                    $host="sql2.bravehost.com";
-                    $usr="sanangel";
-                    $psw="123456";
-                    $namedb="sanangel_2426973";
-                    $con=mysqli_connect($host,$usr,$psw,$namedb) or die;
-
-                    return $con;
-                }
-
                 function asistencia($idParam,$fechas,$idsEmp){
                     $resultado="";
                     switch ($idParam){
                         case 1://Lista de empleados
                             global $numRegi;
-                            $fechasSplit = explode( ",", $fechas );
-                            $idEmpSplit = explode( ",", $idsEmp );
-                            //$fecha//=strtok($fechas,",");
-                            $tmpStr = "{ \"asistencias\": [";
-                            $c = 0;//contador indice de fechas
-                            while( $c < count( $fechasSplit ) ) //$fecha!==false){
-                            {
-                                $fecha = $fechasSplit[ $c++ ];
-
-                                
-                                $tmpStr .= "{ \"fecha\":\"" . $fecha . "\", \"elementos\":[";
-                                $c2 = 0;//contador indice de empleados
-                                while( $c2 < count( $idEmpSplit ) )//$idEmp!==false){
-                                {
-                                    $idEmp=$idEmpSplit[ $c2++ ];//strtok($idsEmp,",");
-                                    $query="SELECT numEmpleado,
-                                                nombre,
-                                                apellidoPaterno,
-                                                apellidoMaterno,
-                                                ( IF( ( SELECT COUNT( * ) FROM registroEmpleado WHERE registroEmpleado.empleado_idEmpleado = idEmpleado AND Fecha='" . $fecha . "' ) = 0, '-1',
-                                                ( ( SELECT COUNT( * ) FROM registroHora WHERE registroEmpleado_idRegistro =
-                                                ( SELECT empleado_idEmpleado FROM registroEmpleado WHERE registroEmpleado.empleado_idEmpleado = idEmpleado AND Fecha='" . $fecha . "'  ) ) >= 2 )
-                                          ) )  as ASISTENCIA
-                                    FROM empleado
-                                    WHERE numEmpleado='" . $idEmp . "'";
-
-                                    $con = conectar( );
+                            $fecha=strtok($fechas,",");
+                            while($fecha!==false){
+                                $idEmp=strtok($idsEmp,",");
+                                while($idEmp!==false){
+                                    $query="SELECT DISTINCT numEmpleado, nombre,            
+                                    apellidoPaterno, apellidoMaterno, Fecha
+                                    FROM empleado, registroEmpleado, registroHora
+                                    WHERE numEmpleado='".$idEmp."' AND idEmpleado = 
+                                    empleado_idEmpleado
+                                    AND Fecha =  '".$fecha."'
+                                    AND idRegistro=registroEmpleado_idRegistro
+                                    AND ( SELECT COUNT(*) FROM registroHora WHERE 
+                                    registroEmpleado_idRegistro =  idRegistro  ) >='".
+                                    $numRegi."'";
                                     $res=mysqli_query($con,$query);
-
                                     while($row=mysqli_fetch_array($res)){
-                                        $tmpStr .= "{\"id\":\"$row[0]\",";
-                                        $tmpStr .= "\"nombre\":\"" . trim( $row[1] ) . " " . trim( $row[2] ) . " " . trim( $row[3] ) . "\",";
-                                        $tmpStr .= "\"asistencia\":\"$row[4]\"},";
+                                        echo"numEmpleado:$row[0]\n";
+                                        echo"nombre:$row[1] $row[2] $row[3]\n";
+                                        echo"fecha:$row[4]\n\n";
                                     }
-                                    //$idEmp=strtok(",");
-                                    mysqli_close($con);
-
+                                    $empleado=strtok(",");
                                 }
-                                $tmpStr = substr( $tmpStr, 0, -1 );
-                                $tmpStr .= "] },";
-                                //$fecha=strtok(",");
+                                $fecha=strtok(",");
                             }
-                            $tmpStr = substr( $tmpStr, 0, -1 );
-                            $tmpStr .= "] }";
-
-                            echo $tmpStr;
-
-                            
                             break;
 
                         case 2://Busqueda por un idEmpleado
                             $fecha=strtok($fechas,",");
-                            $tmpStr = "{ \"asistencias\": [";
                             while($fecha!==false){
-                                    $query="SELECT numEmpleado,
-                                                nombre,
-                                                apellidoPaterno,
-                                                apellidoMaterno,
-                                                ( IF( ( SELECT COUNT( * ) FROM registroEmpleado WHERE registroEmpleado.empleado_idEmpleado = idEmpleado AND Fecha='" . $fecha . "' ) = 0, '-1',
-                                                ( ( SELECT COUNT( * ) FROM registroHora WHERE registroEmpleado_idRegistro =
-                                                ( SELECT empleado_idEmpleado FROM registroEmpleado WHERE registroEmpleado.empleado_idEmpleado = idEmpleado AND Fecha='" . $fecha . "'  ) ) >= 2 )
-                                          ) )  as ASISTENCIA
-                                    FROM empleado
-                                    WHERE numEmpleado='" . $idsEmp . "'";
-
-                                    
-                                $con = conectar( );
+                                $query="SELECT DISTINCT numEmpleado, nombre,            
+                                apellidoPaterno, apellidoMaterno, Fecha
+                                FROM empleado, registroEmpleado, registroHora
+                                WHERE numEmpleado='".$idsEmp."' AND idEmpleado = 
+                                empleado_idEmpleado
+                                AND Fecha =  '".$fecha."'
+                                AND idRegistro=registroEmpleado_idRegistro
+                                AND ( SELECT COUNT(*) FROM registroHora WHERE 
+                                registroEmpleado_idRegistro =  idRegistro  ) >='".
+                                $numRegi."'";
                                 $res=mysqli_query($con,$query);
-
-                                $tmpStr .= "{ \"fecha\":\"" . $fecha . "\", \"elementos\":[";
                                 while($row=mysqli_fetch_array($res)){
-                                    $tmpStr .= "{\"id\":\"$row[0]\",";
-                                    $tmpStr .= "\"nombre\":\"" . trim( $row[1] ) . " " . trim( $row[2] ) . " " . trim( $row[3] ) . "\",";
-                                    $tmpStr .= "\"asistencia\":\"$row[4]\"}";
+                                    echo"numEmpleado:$row[0]\n";
+                                    echo"nombre:$row[1] $row[2] $row[3]\n";
+                                    echo"fecha:$row[4]\n\n";
                                 }
-
-                                 $tmpStr .= "] },";
                                 $fecha=strtok(",");
                             }
-                            $tmpStr = substr( $tmpStr, 0, -1 );
-                            $tmpStr .= "] }";
-
-                            echo $tmpStr;
-                            mysqli_close($con);
                             break;
 
                         case 3://Busqueda de todos los empleados que asistieron en esas fechas
                             $fecha=strtok($fechas,",");
-                            $tmpStr = "{ \"asistencias\": [";
                             while($fecha!==false){
-                                $query="SELECT numEmpleado,
-                                                nombre,
-                                                apellidoPaterno,
-                                                apellidoMaterno,
-                                                ( IF( ( SELECT COUNT( * ) FROM registroEmpleado WHERE registroEmpleado.empleado_idEmpleado = idEmpleado AND Fecha='" . $fecha . "' ) = 0, '-1',
-                                                ( ( SELECT COUNT( * ) FROM registroHora WHERE registroEmpleado_idRegistro =
-                                                ( SELECT empleado_idEmpleado FROM registroEmpleado WHERE registroEmpleado.empleado_idEmpleado = idEmpleado AND Fecha='" . $fecha . "'  ) ) >= 2 )
-                                          ) )  as ASISTENCIA
-                                    FROM empleado";
-
-                                $con = conectar( );
+                                $query="SELECT DISTINCT numEmpleado, nombre,            
+                                apellidoPaterno, apellidoMaterno, Fecha
+                                FROM empleado, registroEmpleado, registroHora
+                                WHERE idEmpleado = 
+                                empleado_idEmpleado
+                                AND Fecha =  '".$fecha."'
+                                AND idRegistro=registroEmpleado_idRegistro
+                                AND ( SELECT COUNT(*) FROM registroHora WHERE 
+                                registroEmpleado_idRegistro =  idRegistro  ) >='".
+                                $numRegi."'";
                                 $res=mysqli_query($con,$query);
-                                echo $res == null;
-
-                                $tmpStr .= "{ \"fecha\":\"" . $fecha . "\", \"elementos\":[";
                                 while($row=mysqli_fetch_array($res)){
-                                    $tmpStr .= "{\"id\":\"$row[0]\",";
-                                    $tmpStr .= "\"nombre\":\"" . trim( $row[1] ) . " " . trim( $row[2] ) . " " . trim( $row[3] ) . "\",";
-                                    $tmpStr .= "\"asistencia\":\"$row[4]\"}";
-                                    $tmpStr .= ",";
+                                    echo"numEmpleado:$row[0]\n";
+                                    echo"nombre:$row[1] $row[2] $row[3]\n";
+                                    echo"fecha:$row[4]\n\n";
                                 }
-
-                                $tmpStr = substr( $tmpStr, 0, -1 );
-
-                                $tmpStr .= "] },";
-
-                                //echo $tmpStr;
                                 $fecha=strtok(",");
                             }
-                            $tmpStr = substr( $tmpStr, 0, -1 );
-                            $tmpStr .= "] }";
-
-                            echo $tmpStr;
-
-
-                            mysqli_close($con);
                             break;
 
                         default:
@@ -245,7 +188,6 @@
                     AND Fecha =  '".$fechas."'
                     AND idRegistro=registroEmpleado_idRegistro
                     AND Hora > '16:00:00' AND Hora < '22:00:00'";
-                    $con = conectar( );
                     $res=mysqli_query($con,$query);
                     while($row=mysqli_fetch_array($res)){
                         echo"numEmpleado:$row[0]\n";
@@ -253,7 +195,6 @@
                         echo"fecha:$row[4]\n";
                         echo"hr salida:$row[5]\n\n";
                     }
-                    mysqli_close($con);
                 }
 
                 function esta($fechas,$hr,$idsEmp){
@@ -265,7 +206,6 @@
                     AND Fecha =  '".$fechas."'
                     AND idRegistro=registroEmpleado_idRegistro
                     AND Hora > '16:00:00' AND Hora < '22:00:00'";
-                    $con = conectar( );
                     $res=mysqli_query($con,$query);
                     while($row=mysqli_fetch_array($res)){
                         echo"numEmpleado:$row[0]\n";
@@ -273,7 +213,6 @@
                         echo"fecha:$row[4]\n";
                         echo"hr salida:$row[5]\n\n";
                     }
-                    mysqli_close($con);
 
                 }
 
@@ -300,7 +239,6 @@
                                     AND Fecha =  '".$fecha."'
                                     AND idRegistro=registroEmpleado_idRegistro
                                     AND Hora > '08:01:00' AND Hora < '10:00:00'";
-                                    $con = conectar( );
                                     $res=mysqli_query($con,$query);
                                     while($row=mysqli_fetch_array($res)){
                                         echo"numEmpleado:$row[0]\n";
@@ -312,7 +250,6 @@
                                 }
                                 $fecha=strtok(",");
                             }
-                            mysqli_close($con);
                             break;
 
                         case 2://empleado que llegaron despues de las 08:01:00 y antes de las 10:00:00
@@ -326,7 +263,6 @@
                                 AND Fecha =  '".$fecha."'
                                 AND idRegistro=registroEmpleado_idRegistro
                                 AND Hora > '08:01:00' AND Hora < '10:00:00'";
-                                $con = conectar( );
                                 $res=mysqli_query($con,$query);
                                 while($row=mysqli_fetch_array($res)){
                                     echo"numEmpleado:$row[0]\n";
@@ -335,7 +271,6 @@
                                 }
                                 $fecha=strtok(",");
                             }
-                            mysqli_close($con);
                             break;
 
                         case 3://Busqueda de todos los empleados que llegaron despues de las 08:01:00 y antes de las 10:00:00
@@ -349,7 +284,6 @@
                                 AND Fecha =  '".$fecha."'
                                 AND idRegistro=registroEmpleado_idRegistro
                                 AND Hora > '08:01:00' AND Hora < '10:00:00'";
-                                $con = conectar( );
                                 $res=mysqli_query($con,$query);
                                 while($row=mysqli_fetch_array($res)){
                                     echo"numEmpleado:$row[0]\n";
@@ -358,7 +292,6 @@
                                 }
                                 $fecha=strtok(",");
                             }
-                            mysqli_close($con);
                             break;
 
                         default:
@@ -366,5 +299,8 @@
                             break;
                     }
                 }
-                
+                mysqli_close($con);
             ?>
+        </div>
+    </body>
+</html>

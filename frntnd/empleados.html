@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<style type="text/css" title="currentStyle">
+			@import "datatables/media/css/demo_page.css";
+			@import "datatables/media/css/demo_table.css";
+		</style>
+
+		<link href="css/excite-bike/jquery-ui-1.10.2.custom.css" rel="stylesheet">
+		<link href="sanangel/css/style.css" rel="stylesheet">
+		<script src="js/jquery-1.9.1.js"></script>
+		<script src="js/jquery-ui-1.10.2.custom.js"></script>
+		
+
+		<script type="text/javascript" language="javascript" src="datatables/media/js/jquery.dataTables.js"></script>
+		<style type="text/css" title="currentStyle">
+			@import "datatables/media/css/demo_page.css";
+			@import "datatables/media/css/demo_table.css";
+		</style>
+
+
+		<script type="text/javascript" src="sanangel/js/xdate.js"></script>
+		<script type="text/javascript" src="sanangel/js/sanangel.js"></script>
+		
+		<title>Empleados - San Angel</title>
+		
+	</head>
+	<body>
+
+		<div id="container">
+			<div id="header"></div>
+			<div class="date right"></div>
+			<div id="main-tabs">
+				<ul>
+					<!--li><a href="#presentation-tab">Inicio</a></li-->
+					<li><a href="#loadfile-tab">Registros</a></li>
+					<!--li><a href="#review-tab">Retardos</a></li-->
+					<li><a href="#employe-tab">Asistencia Semanal</a></li>
+					<!--li><a href="#employeman-tab">Agregar Empleados</a></li-->
+					<li><a href="#setup-tab">Configuración</a></li>
+				</ul>
+				<div id="presentation-tab">
+					<div class="content"></div>
+				</div>
+				<div id="loadfile-tab">
+					<div class="content">
+						<div id="file-examinar">
+			                <form name="uploadForm" id="uploadForm" action="../parser2.php" method="post" 
+			                    enctype="multipart/form-data">
+			                    
+			                    <li id="form_upload">
+			                    	<label for="file">Elige el archivo a procesar:</label>
+			                    	<input type="file" name="file" id="file" />
+			            		</li>
+			            		<input type="submit" val="Subir" class="button" />
+			                </form>
+			                 <button type="submit" class="button" id="btnUploadFileDAT">Subir</button>
+			            </div>
+					</div>
+				</div>
+				<div id="review-tab">
+					<div class="content"></div>
+				</div>
+				<div id="employe-tab">
+					<div class="content">
+							<div class="toolbar">
+								<div class="box_left">
+									<div class="accordion">
+										  <h3>Filtros y busquedas</h3>
+										  <div>
+										    <p>
+										    	<label for="filterAsistencias">Nombres:</label>
+										    	<input name="filterAsistencias" class="right" type="text" id="filterAsistencias" title="Búsqueda por nombres."></input>
+										    	
+										    </p>
+										  </div>
+										  <h3>Exportar</h3>
+										  <div>
+										    <button class="button" id="exportbutton">Exportar .XLS</button>
+										  </div>
+										</div>		
+									
+								</div>
+								<div class="box_right">
+									<div id="datepicker1" class="calendar" />
+								</div>
+
+							</div>
+							<div class="clear"></div>
+							<div id="asistencias-state" class="state-bar ui-state-highlight ui-corner-all">
+									<p>
+										<span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>	
+										<strong>Hola</strong>
+										<span class="text">hey</span>
+									</p>
+							</div>
+						</div>
+						<div class="tableview" id="_tableviewemployee">
+							<table cellpadding="0" cellspacing="0" border="0" class="displaytable" id="tableviewemployee" >
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>Nombre</th>
+										<th>Dom</th>
+										<th>Lun</th>
+										<th>Mar</th>
+										<th>Mie</th>
+										<th>Jue</th>
+										<th>Vie</th>
+										<th>Sáb</th>
+										<th>Faltas</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>			
+						</div>
+					</div>
+				</div>
+				<div id="employeman-tab">
+					<div class="content"></div>
+				</div>
+				<div id="setup-tab">
+					<div class="content"></div>
+				</div>
+			</div>
+		</div>
+
+		<di	v id="loading">
+			<div id="progressbarAsistencia"><!--div class="progress-label">Cargando...</div--></div>
+		</div>
+
+	</body>
+</html>
